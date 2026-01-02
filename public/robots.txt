@@ -1,0 +1,16 @@
+# Palestine Tire Center - Robots.txt
+
+# Allow all search engines
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.palestinetire.com/sitemap.xml
+
+# Disallow admin and private areas (add as needed)
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+
+# Crawl delay (optional, helps prevent overload)
+Crawl-delay: 1
