@@ -24,6 +24,8 @@ const inter = Inter({
 
 // Components
 import Navbar from "@/components/common/Navbar/navbar";
+import Footer from "@/components/common/Footer/footer";
+
 // Import both logo versions
 import logoHorizontal from "@/components/common/Navbar/assets/logo-horizontal.png";
 import logoVertical from "@/components/common/Navbar/assets/logo-vertical.png";
@@ -178,11 +180,12 @@ export default function RootLayout({ children }) {
         {/* Main content */}
         <main className="min-h-screen">{children}</main>
 
-        {/* Footer will go here */}
-        {/* <Footer /> */}
+        {/* Footer */}
+        <Footer />
 
         {/* Analytics */}
         <Analytics />
+        
       </body>
     </html>
   );

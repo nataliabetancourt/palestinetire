@@ -55,7 +55,7 @@ const VideoBackground = memo(function VideoBackground({ videoSrc, posterSrc }) {
 // Memoized hero content component
 const HeroContent = memo(function HeroContent() {
   return (
-    <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-start pt-24">
+    <div className="relative z-10 container mx-auto px-4 lg:px-6 h-full flex items-center justify-start pt-36">
       <div className="text-left text-white w-full">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
@@ -86,7 +86,7 @@ const HeroContent = memo(function HeroContent() {
           >
             <a
               href="/shop-tires"
-              className="inline-flex items-center gap-2 font-kanit bg-red-600 hover:bg-red-700 text-white font-semibold px-8 py-3 rounded-md text-xl transition-all duration-300 shadow-2xl hover:shadow-red-600/50 hover:scale-105 whitespace-nowrap"
+              className="inline-flex items-center gap-2 font-kanit bg-red-600 hover:bg-red-700 text-white font-semibold px-8 py-3 rounded-md text-lg transition-all duration-300 shadow-2xl hover:shadow-red-600/50 hover:scale-105 whitespace-nowrap"
             >
               SHOP NOW
               <svg
@@ -126,7 +126,7 @@ const HeroContent = memo(function HeroContent() {
           >
             <a
               href="/shop-tires"
-              className="inline-block font-kanit bg-red-600 hover:bg-red-700 text-white font-semibold px-8 py-4 rounded-md text-xl transition-all duration-300 shadow-2xl hover:shadow-red-600/50 hover:scale-105"
+              className="inline-block font-kanit bg-red-600 hover:bg-red-700 text-white font-semibold px-4 py-4 rounded-md text-xl transition-all duration-300 shadow-2xl hover:shadow-red-600/50 hover:scale-105"
             >
               SHOP NOW
             </a>

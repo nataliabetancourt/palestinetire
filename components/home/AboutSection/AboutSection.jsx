@@ -3,97 +3,85 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import tireBg from "./assets/tires-background.png";
+import storeDesktopImg from "./assets/storefront-desktop.png"
+import storeMobileImg from "./assets/storefront-mobile.png"
 
-export default function AboutSection({ translations }) {
-  // Animation variants - similar to your LandingSection
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6 },
-    },
-  };
-
-  const staggerContainer = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
-      },
-    },
-  };
-
-  const fadeInLeft = {
-    hidden: { opacity: 0, x: -30 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.8 },
-    },
-  };
-
+const AboutSection = () => {
   return (
-    <div className="relative px-4 py-20 lg:px-20 w-full overflow-hidden bg-black text-white">
-      {/* Background image with overlay */}
-      <div className="absolute inset-0 z-0">
-        {/* Background image */}
-        <div className="absolute inset-0">
-          <Image
-            src={tireBg}
-            alt="Tire background"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover"
-          />
-        </div>
-      </div>
+    <section className="relative bg-white py-16 md:py-20 lg:py-28 overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          
+          {/* Left Column - Text Content */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="relative z-10"
+          >
+            {/* Section Title */}
+            <div className="mb-8">
+              <h2 className="font-kanit text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-black leading-none mb-4">
+                ABOUT US.
+              </h2>
+              {/* Red underline accent */}
+              <motion.div 
+                initial={{ width: 0 }}
+                whileInView={{ width: "10rem" }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                className="h-1 bg-red-600"
+              />
+            </div>
 
-      <motion.div
-        className="container mx-auto px-4 md:px-8 py-16 md:py-24 flex flex-col md:flex-row items-start"
-        variants={staggerContainer}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-      >
-        {/* Left column */}
-        <div className="md:w-1/2 lg:w-5/12 z-30 md:pr-8 mb-8 md:mb-0">
-          <motion.div className="flex items-center mb-4" variants={fadeInUp}>
-            <div className="w-8 h-1 bg-purple-700 mr-4"></div>
-            <h2 className="text-sm md:text-base font-medium uppercase tracking-wider">
-              {translations.sectionTag}
-            </h2>
+            {/* Description */}
+            <div className="space-y-6">
+              <p className="font-inter text-md sm:text-md text-gray-700 leading-relaxed">
+                Palestine Tire Center — your trusted destination for quality tire services in Palestine, TX. Our team delivers expert care with fast turnaround times, competitive pricing, and a welcoming atmosphere. From tire rotations and alignments to repairs for vehicles of all sizes, we're here to get you back on the road quickly. Walk-ins always welcome.
+              </p>
+            </div>
           </motion.div>
 
-          <motion.h1
-            className="text-3xl md:text-4xl lg:text-4xl font-bold mb-6 leading-tight"
-            variants={fadeInLeft}
+          {/* Right Column - Images (Desktop vs Mobile/Tablet) */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+            className="relative lg:-mr-[calc((100vw-1280px)/2+2rem)] xl:-mr-[calc((100vw-1280px)/2+2rem)]"
           >
-            {translations.title}
-          </motion.h1>
-        </div>
+            {/* Desktop Image - With diagonal cuts and accents, extends to edge */}
+            <div className="hidden lg:block relative w-full">
+              <Image
+                src={storeDesktopImg}
+                alt="Palestine Tire Center Storefront"
+                width={1600}
+                height={1200}
+                className="w-full h-auto"
+                sizes="(max-width: 1024px) 100vw, 60vw"
+                priority={false}
+              />
+            </div>
 
-        {/* Right column */}
-        <div className="bg-black bg-blend-multiply opacity-75 px-8 py-6 rounded-lg md:w-1/2 lg:w-7/12 z-30">
-          <motion.p
-            className="text-md md:text-md mb-6 leading-relaxed"
-            variants={fadeInUp}
-          >
-            {translations.paragraph1}
-          </motion.p>
+            {/* Mobile/Tablet Image - Simpler, cleaner design */}
+            <div className="block lg:hidden relative w-full">
+              <Image
+                src={storeMobileImg}
+                alt="Palestine Tire Center Storefront"
+                width={1000}
+                height={750}
+                className="w-full h-auto"
+                sizes="100vw"
+                priority={false}
+              />
+            </div>
+          </motion.div>
 
-          <motion.p
-            className="text-md md:text-md leading-relaxed"
-            variants={fadeInUp}
-          >
-            {translations.paragraph2}
-          </motion.p>
         </div>
-      </motion.div>
-    </div>
+      </div>
+    </section>
   );
-}
+};
+
+export default AboutSection;

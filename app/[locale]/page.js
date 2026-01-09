@@ -1,4 +1,9 @@
 import LandingSection from "@/components/home/LandingSection/LandingSection";
+import AboutSection from "@/components/home/AboutSection/AboutSection";
+import ServicesSection from "@/components/home/ServicesSection/ServicesSection";
+import ValuesSection from "@/components/home/ValuesSection/ValuesSection";
+import TestimonialsSection from "@/components/home/TestimonialsSection/TestimonialsSection";
+import ContactSection from "@/components/home/ContactSection/ContactSection";
 
 // SEO Metadata for home page
 export const metadata = {
@@ -33,7 +38,11 @@ export default function Home() {
       <LandingSection />
 
       {/* Additional sections will be added here */}
-      {/* Example: Services Section, Brand Showcase, Testimonials, etc. */}
+      <AboutSection />
+      <ServicesSection />
+      <ValuesSection />
+      <TestimonialsSection />
+      <ContactSection/>
     </>
   );
 }

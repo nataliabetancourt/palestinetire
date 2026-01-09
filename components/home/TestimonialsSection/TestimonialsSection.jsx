@@ -1,313 +1,225 @@
 "use client";
-// TestimonialCarousel.jsx
-import React, { useState, useEffect } from "react";
+
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import tire from "./assets/tire.png";
+import dustinImg from "./assets/dustin.png"
+import sofiaImg from "./assets/sofia.png"
+import tedImg from "./assets/ted.png"
+import jpImg from "./assets/jp.png"
 
-const testimonials = [
-  {
-    id: 1,
-    text: "Great staff. I think that says it all. I recommend the Bridgeport!",
-    author: "Julia Duh",
-    date: "01/10/2025",
-    bgColor: "bg-violet-600",
-    textColor: "text-white",
-  },
-  {
-    id: 2,
-    text: "It's so refreshing to find honest mechanics!",
-    author: "Brandon Thompson",
-    date: "02/10/2025",
-    bgColor: "bg-gray-300",
-    textColor: "text-gray-800",
-  },
-  {
-    id: 3,
-    text: "This place is AWESOME the work is ALWAYS accurate reliable communicative...I highly recommend!!... I've had a water pump replacement and this time Brakes and Rotors EXCELLENT!",
-    author: "Nikki Henderson",
-    date: "01/31/2025",
-    bgColor: "bg-white",
-    textColor: "text-gray-800",
-  },
-  {
-    id: 4,
-    text: "I've been here several times and they're always very helpful and efficient with their work. Thank you for your help",
-    author: "Salvador Juarez",
-    date: "03/17/2025",
-    bgColor: "bg-violet-600",
-    textColor: "text-white",
-  },
-  {
-    id: 5,
-    text: "Was pleasantly surprised with my service! Very fair price, clean facility, very friendly staff and quick time. Went in for an oil change but I couldn't be happier",
-    author: "Jacob Bradley",
-    date: "03/10/2025",
-    bgColor: "bg-gray-300",
-    textColor: "text-gray-800",
-  },
-  {
-    id: 6,
-    text: "Best tire shop around, been here twice and I love them. Great prices, great service, no up charges, and my favorite no upgrades I didn't ask for an they move fast. This is how you win your customers.",
-    author: "Steve Odame",
-    date: "03/07/2025",
-    bgColor: "bg-white",
-    textColor: "text-gray-800",
-  },
-];
 
-// Google Logo component
-const GoogleLogo = () => (
-  <svg
-    viewBox="0 0 24 24"
-    width="24"
-    height="24"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <g transform="matrix(1, 0, 0, 1, 27.009001, -39.238998)">
-      <path
-        fill="#4285F4"
-        d="M -3.264 51.509 C -3.264 50.719 -3.334 49.969 -3.454 49.239 L -14.754 49.239 L -14.754 53.749 L -8.284 53.749 C -8.574 55.229 -9.424 56.479 -10.684 57.329 L -10.684 60.329 L -6.824 60.329 C -4.564 58.239 -3.264 55.159 -3.264 51.509 Z"
-      />
-      <path
-        fill="#34A853"
-        d="M -14.754 63.239 C -11.514 63.239 -8.804 62.159 -6.824 60.329 L -10.684 57.329 C -11.764 58.049 -13.134 58.489 -14.754 58.489 C -17.884 58.489 -20.534 56.379 -21.484 53.529 L -25.464 53.529 L -25.464 56.619 C -23.494 60.539 -19.444 63.239 -14.754 63.239 Z"
-      />
-      <path
-        fill="#FBBC05"
-        d="M -21.484 53.529 C -21.734 52.809 -21.864 52.039 -21.864 51.239 C -21.864 50.439 -21.724 49.669 -21.484 48.949 L -21.484 45.859 L -25.464 45.859 C -26.284 47.479 -26.754 49.299 -26.754 51.239 C -26.754 53.179 -26.284 54.999 -25.464 56.619 L -21.484 53.529 Z"
-      />
-      <path
-        fill="#EA4335"
-        d="M -14.754 43.989 C -12.984 43.989 -11.404 44.599 -10.154 45.789 L -6.734 42.369 C -8.804 40.429 -11.514 39.239 -14.754 39.239 C -19.444 39.239 -23.494 41.939 -25.464 45.859 L -21.484 48.949 C -20.534 46.099 -17.884 43.989 -14.754 43.989 Z"
-      />
-    </g>
-  </svg>
-);
-
-const TestimonialCarousel = ({ translations }) => {
+const TestimonialsSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isMounted, setIsMounted] = useState(false);
-  const [autoplay, setAutoplay] = useState(true);
-  const [direction, setDirection] = useState(null);
-  const [width, setWidth] = useState(0);
 
-  // Calculate visible testimonials based on screen width
-  const getVisibleCount = () => {
-    if (width < 640) return 1; // Mobile
-    if (width < 1024) return 2; // Tablet
-    return 3; // Desktop
+  const testimonials = [
+    {
+      id: 1,
+      text: "I was in big trouble and these guys helped me out. I'm speechless. Almost emotional. Please give them your business. Say hi to that long haired dude that works there.",
+      author: "Dustin Parrett",
+      rating: 5,
+      date: "November, 2025",
+      avatar: dustinImg,
+    },
+    {
+      id: 2,
+      text: "Awesome service! Got my car fixed in 30 minutes he was done. Quick and friendly. Reasonable prices too.",
+      author: "Sofia Ulloa",
+      rating: 5,
+      date: "December, 2025",
+      avatar: sofiaImg,
+    },
+    {
+      id: 3,
+      text: "They treat you like family excellent customer service. I strongly recommend this place for tires and service",
+      author: "Ted Harrigan",
+      rating: 5,
+      date: "January, 2026",
+      avatar: tedImg,
+    },
+     {
+      id: 4,
+      text: "So far so good. Had a new lift installed with alignment. Love how the truck looks and it feels solid and drives straight. Really fair price and one day turnaround.",
+      author: "JP Scout",
+      rating: 5,
+      date: "November, 2026",
+      avatar: jpImg,
+    },
+    
+    // Add more testimonials as needed
+  ];
+
+  const nextTestimonial = () => {
+    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
   };
 
-  const visibleTestimonials = getVisibleCount();
-  const maxIndex = testimonials.length - visibleTestimonials;
+  const prevTestimonial = () => {
+    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
 
-  // Initialize on mount
-  useEffect(() => {
-    setIsMounted(true);
-    setWidth(window.innerWidth);
-
-    const handleResize = () => {
-      setWidth(window.innerWidth);
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  // Autoplay functionality
-  useEffect(() => {
-    if (!isMounted || !autoplay) return;
-
+  // Auto-play carousel every 5 seconds
+  React.useEffect(() => {
     const interval = setInterval(() => {
-      nextSlide();
-    }, 5000);
+      nextTestimonial();
+    }, 5000); // 5000ms = 5 seconds
 
     return () => clearInterval(interval);
-  }, [currentIndex, autoplay, isMounted]);
-
-  // Navigation functions
-  const nextSlide = () => {
-    if (!isMounted) return;
-    setDirection("right");
-    setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
-  };
-
-  const prevSlide = () => {
-    if (!isMounted) return;
-    setDirection("left");
-    setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
-  };
-
-  const handleMouseEnter = () => setAutoplay(false);
-  const handleMouseLeave = () => setAutoplay(true);
-
-  // Animation variants
-  const slideVariants = {
-    hidden: (direction) => ({
-      x: direction === "right" ? 500 : -500,
-      opacity: 0,
-    }),
-    visible: {
-      x: 0,
-      opacity: 1,
-      transition: {
-        x: { type: "spring", stiffness: 300, damping: 30 },
-        opacity: { duration: 0.3 },
-      },
-    },
-    exit: (direction) => ({
-      x: direction === "right" ? -500 : 500,
-      opacity: 0,
-      transition: {
-        x: { type: "spring", stiffness: 300, damping: 30 },
-        opacity: { duration: 0.3 },
-      },
-    }),
-  };
+  }, [currentIndex]);
 
   return (
-    <div className="w-full py-24 md:px-9 bg-white">
-      <div className="container mx-auto px-4">
-        {/* Header Section */}
-        <div className="text-center mb-12">
-          <div className="flex justify-center items-center mb-4">
-            <div className="w-8 h-0.5 bg-violet-600"></div>
-            <p className="mx-2 text-gray-700 font-medium tracking-wide">
-              {translations.sectionTag}
-            </p>
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
-            {translations.title}
-          </h2>
+    <section className="relative bg-white py-16 md:py-20 lg:py-28 overflow-hidden">
 
-          <div className="flex items-center justify-center mb-8">
-            <div className="flex items-center">
-              <div className="w-6 h-6 mr-2">
-                <GoogleLogo />
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-12 lg:gap-16">
+          
+          {/* Left Column - Title & Description */}
+          <div className="lg:flex-shrink-0 lg:w-auto">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
+              {/* Section Title */}
+              <div className="mb-8">
+                <h2 className="font-kanit text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-black leading-none mb-6">
+                  TESTIMONIES.
+                </h2>
+                {/* Red underline accent */}
+                <motion.div 
+                  initial={{ width: 0 }}
+                  whileInView={{ width: "10rem" }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
+                  className="h-1 bg-red-600"
+                />
               </div>
-              <span className="text-gray-800 font-medium">
-                {translations.googleRating}
-              </span>
-            </div>
-          </div>
-        </div>
 
-        {/* Testimonials Section */}
-        {!isMounted ? (
-          // Static version for SSR
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-            {testimonials.slice(0, 3).map((testimonial) => (
-              <div
-                key={testimonial.id}
-                className={`${testimonial.bgColor} ${testimonial.textColor} rounded-lg shadow-lg p-6 flex flex-col min-h-[200px] md:min-h-[250px]`}
-              >
-                <div className="flex-grow">
-                  <p className="text-lg mb-6">{testimonial.text}</p>
-                </div>
-                <div className="mt-auto">
-                  <p className="font-semibold">{testimonial.author}</p>
-                  <p className="text-sm opacity-75">{testimonial.date}</p>
-                </div>
-              </div>
-            ))}
+              {/* Description */}
+              <p className="font-inter text-md sm:text-md text-gray-700 leading-relaxed max-w-sm">
+                It's always great to have a second opinion. Hear what our customers have to say about their experience!
+              </p>
+            </motion.div>
           </div>
-        ) : (
-          // Animated version for client
-          <div
-            className="relative overflow-hidden"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
+
+          {/* Right Column - Testimonials Carousel */}
+          <div className="lg:flex-1 lg:max-w-2xl">
             <div className="relative">
-              <AnimatePresence mode="wait" initial={false} custom={direction}>
-                <motion.div
-                  key={currentIndex}
-                  custom={direction}
-                  variants={slideVariants}
-                  initial="hidden"
-                  animate="visible"
-                  exit="exit"
-                  className="grid grid-cols-1 px-9 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6"
-                >
-                  {testimonials
-                    .slice(currentIndex, currentIndex + visibleTestimonials)
-                    .map((testimonial) => (
-                      <div
-                        key={testimonial.id}
-                        className={`${testimonial.bgColor} ${testimonial.textColor} relative overflow-hidden rounded-lg shadow-lg p-6 flex flex-col min-h-[200px] md:min-h-[250px]`}
-                      >
-                        <div className="flex-grow">
-                          <p className="text-lg mb-6">{testimonial.text}</p>
+              
+              {/* Testimonials Stack */}
+              <div className="relative min-h-[240px] md:min-h-[200px]">
+                {testimonials.map((testimonial, index) => {
+                  // Calculate position relative to current
+                  const position = (index - currentIndex + testimonials.length) % testimonials.length;
+                  
+                  return (
+                    <motion.div
+                      key={testimonial.id}
+                      initial={false}
+                      animate={{
+                        x: position === 0 ? 0 : position === 1 ? 30 : -100,
+                        y: position === 0 ? 0 : position === 1 ? 15 : 0,
+                        opacity: position === 0 ? 1 : position === 1 ? 0.7 : 0,
+                        scale: position === 0 ? 1 : position === 1 ? 0.97 : 0.9,
+                        zIndex: position === 0 ? 20 : position === 1 ? 10 : 0,
+                      }}
+                      transition={{ duration: 0.5, ease: "easeInOut" }}
+                      className="absolute top-0 left-0 w-full"
+                    >
+                      {/* Testimonial Card */}
+                      <div className="bg-white rounded-sm shadow-lg p-5 md:p-6 border-t-4 border-red-600">
+                        {/* Quote */}
+                        <p className="font-inter text-md md:text-md text-gray-700 leading-relaxed mb-5 italic">
+                          "{testimonial.text}"
+                        </p>
+
+                        {/* Author Info */}
+                        <div className="flex items-center gap-3">
+                          {/* Avatar */}
+                          <div className="relative w-10 h-10 rounded-full overflow-hidden bg-gray-200 flex-shrink-0">
+                            <Image
+                              src={testimonial.avatar}
+                              alt={testimonial.author}
+                              fill
+                              className="object-cover"
+                            />
+                          </div>
+
+                          {/* Name, Rating, Date */}
+                          <div className="flex-1">
+                            <h4 className="font-kanit text-sm md:text-base font-bold text-gray-900">
+                              {testimonial.author}
+                            </h4>
+                            <div className="flex items-center gap-2 mt-1">
+                              {/* Stars */}
+                              <div className="flex items-center gap-1">
+                                <svg className="w-3 h-3 text-red-600 fill-current" viewBox="0 0 20 20">
+                                  <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                                </svg>
+                                <span className="font-inter text-xs font-bold text-gray-900">
+                                  {testimonial.rating} STARS
+                                </span>
+                              </div>
+                              {/* Date */}
+                              <span className="font-inter text-xs text-gray-400">
+                                {testimonial.date}
+                              </span>
+                            </div>
+                          </div>
                         </div>
-                        <div className="mt-auto">
-                          <p className="font-semibold">{testimonial.author}</p>
-                          <p className="text-sm opacity-75">
-                            {testimonial.date}
-                          </p>
-                        </div>
-                        <Image
-                          src={tire}
-                          alt="Tire BG"
-                          width={160}
-                          height={32}
-                          className="absolute -bottom-11 -right-6"
-                        />
                       </div>
-                    ))}
-                </motion.div>
-              </AnimatePresence>
+                    </motion.div>
+                  );
+                })}
+              </div>
+
+              {/* Navigation Buttons */}
+              {testimonials.length > 1 && (
+                <div className="flex justify-center sm:justify-center md:justify-end lg:justify-end gap-3 mt-6">
+                  <button
+                    onClick={prevTestimonial}
+                    className="w-10 h-10 rounded-full bg-red-600 hover:bg-red-700 text-white flex items-center justify-center transition-colors duration-300 shadow-lg"
+                    aria-label="Previous testimonial"
+                  >
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                    </svg>
+                  </button>
+                  <button
+                    onClick={nextTestimonial}
+                    className="w-10 h-10 rounded-full bg-red-600 hover:bg-red-700 text-white flex items-center justify-center transition-colors duration-300 shadow-lg"
+                    aria-label="Next testimonial"
+                  >
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                </div>
+              )}
+
+              {/* Dots Indicator */}
+              {testimonials.length > 1 && (
+                <div className="flex justify-center sm:justify-center md:justify-end lg:justify-end gap-2 mt-4">
+                  {testimonials.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentIndex(index)}
+                      className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                        index === currentIndex ? "bg-red-600 w-8" : "bg-gray-300"
+                      }`}
+                      aria-label={`Go to testimonial ${index + 1}`}
+                    />
+                  ))}
+                </div>
+              )}
+
             </div>
-
-            {/* Controls */}
-            <motion.button
-              onClick={prevSlide}
-              className="absolute left-2 md:left-4 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-lg text-gray-800 hover:bg-gray-100 focus:outline-none z-10"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 md:h-6 md:w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M15 19l-7-7 7-7"
-                />
-              </svg>
-            </motion.button>
-
-            <motion.button
-              onClick={nextSlide}
-              className="absolute right-2 md:right-4 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-lg text-gray-800 hover:bg-gray-100 focus:outline-none z-10"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 md:h-6 md:w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </motion.button>
           </div>
-        )}
+
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
-export default TestimonialCarousel;
+export default TestimonialsSection;
