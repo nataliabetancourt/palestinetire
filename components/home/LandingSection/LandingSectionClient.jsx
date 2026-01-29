@@ -84,6 +84,7 @@ const HeroContent = memo(function HeroContent() {
             transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
             className="flex-shrink-0"
           >
+            {/*
             <a
               href="/shop-tires"
               className="inline-flex items-center gap-2 font-kanit bg-red-600 hover:bg-red-700 text-white font-semibold px-8 py-3 rounded-md text-lg transition-all duration-300 shadow-2xl hover:shadow-red-600/50 hover:scale-105 whitespace-nowrap"
@@ -104,6 +105,7 @@ const HeroContent = memo(function HeroContent() {
                 />
               </svg>
             </a>
+            */}
           </motion.div>
         </div>
 
@@ -124,12 +126,14 @@ const HeroContent = memo(function HeroContent() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
           >
+            {/*
             <a
               href="/shop-tires"
               className="inline-block font-kanit bg-red-600 hover:bg-red-700 text-white font-semibold px-4 py-4 rounded-md text-xl transition-all duration-300 shadow-2xl hover:shadow-red-600/50 hover:scale-105"
             >
               SHOP NOW
             </a>
+            */}
           </motion.div>
         </div>
       </div>

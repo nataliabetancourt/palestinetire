@@ -103,6 +103,7 @@ const Navbar = ({ logoHorizontal, logoVertical }) => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="hidden md:flex items-center gap-4"
           >
+            {/*
             <Link
               href="/shop-tires"
               className="bg-red-600 hover:bg-red-700 text-white font-medium px-6 py-2 rounded-md text-sm lg:text-base transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2 whitespace-nowrap font-kanit"
@@ -123,6 +124,7 @@ const Navbar = ({ logoHorizontal, logoVertical }) => {
                 />
               </svg>
             </Link>
+            */}
           </motion.div>
 
           {/* Mobile Menu Button */}
@@ -162,6 +164,7 @@ const Navbar = ({ logoHorizontal, logoVertical }) => {
             className="md:hidden mt-4 pb-4"
           >
             <div className="flex flex-col gap-3">
+              {/*
               <Link
                 href="/shop-tires"
                 className="bg-red-600 hover:bg-red-700 text-white font-medium px-6 py-3 rounded-md text-center transition-all duration-300 shadow-lg flex items-center justify-center gap-2 font-kanit"
@@ -183,7 +186,7 @@ const Navbar = ({ logoHorizontal, logoVertical }) => {
                   />
                 </svg>
               </Link>
-              
+              */}
               {/* Add more mobile menu items here as needed */}
             </div>
           </motion.div>
