@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 const LandingSectionClient = dynamic(() => import("./LandingSectionClient"), {
   ssr: false,
   loading: () => (
-    <div className="relative h-[85vh] w-full bg-gray-900">
+    <div className="relative min-h-[115vh] md:min-h-[85vh] md:h-screen w-full bg-gray-900">
       {/* Loading placeholder with gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-black" />
       
@@ -22,10 +22,12 @@ const LandingSectionClient = dynamic(() => import("./LandingSectionClient"), {
 
 export default function LandingSection() {
   return (
-    <div className="relative h-[85vh] w-full overflow-hidden">
+    <div className="relative min-h-[115vh] md:min-h-[85vh] md:h-screen w-full overflow-hidden">
       {/* Preconnect to video CDN if you're hosting externally */}
       <link rel="preconnect" href="https://res.cloudinary.com" />
-      
+      <link rel="preconnect" href="https://app.tireconnect.ca" crossOrigin="anonymous" />
+      <link rel="dns-prefetch" href="https://app.tireconnect.ca" />
+
       {/* Static fallback background color */}
       <div className="absolute inset-0 z-0 bg-gray-900" />
 
